@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 
+import Header from '../../modules/Header';
+
 import {
     MainTemplate,
-} from './style';
+} from './styles';
 
 class Main extends Component {
   render() {
     return (
       <MainTemplate>
-          
+          <Header />
       </MainTemplate>
     );
   }
