@@ -12,7 +12,7 @@ class Header extends Component {
     return (
       <HeaderContainer>
         <HeaderContent>
-            <Logo />
+          <Logo />
         </HeaderContent>
       </HeaderContainer>
     );

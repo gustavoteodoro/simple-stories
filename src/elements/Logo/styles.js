@@ -16,7 +16,7 @@ export const LogoContainer = styled.div`
 export const LogoTitle = styled.h1`
     ${spectralRegular(40)};
 
-    display: block;
+    display: inline-block;
     margin: 0;
     padding: 10px;
     color: ${white};
