@@ -6,7 +6,7 @@ import {
 } from '../../styles/tools/types';
 
 import {
-    darkSeaGreen,
+    white,
 } from '../../styles/settings/colors';
 
 export const LogoContainer = styled.div`
@@ -19,5 +19,5 @@ export const LogoTitle = styled.h1`
     display: block;
     margin: 0;
     padding: 10px;
-    color: ${darkSeaGreen};
+    color: ${white};
 `;
