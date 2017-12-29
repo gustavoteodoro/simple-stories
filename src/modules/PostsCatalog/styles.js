@@ -5,5 +5,6 @@ import {
 } from '../../styles/settings/colors';
 
 export const PostsCatalogContainer = styled.div`
-    display: block;
+    display: flex;
+    flex-wrap: wrap;
 `;

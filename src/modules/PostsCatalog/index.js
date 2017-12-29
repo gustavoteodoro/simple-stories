@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import FeaturedPost from '../../elements/FeaturedPost';
+
 import {
   PostsCatalogContainer,
 } from './styles';
@@ -14,7 +16,7 @@ class PostsCatalog extends Component {
       <PostsCatalogContainer>
         {
           featuredPosts.map((post) => (
-            <img src={'/assets/' + post.cover} />
+            <FeaturedPost post={post} />
           ))
         }
       </PostsCatalogContainer>

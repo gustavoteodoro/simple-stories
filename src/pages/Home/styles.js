@@ -1,8 +1,5 @@
 import styled, { css } from 'styled-components';
 
-import {
-    darkSeaGreen,
-} from '../../styles/settings/colors';
 
 export const HomeContainer = styled.div`
     display: block;
