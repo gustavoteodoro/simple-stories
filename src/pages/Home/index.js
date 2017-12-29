@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Logo from '../../elements/Logo';
+import PostsCatalog from '../../modules/PostsCatalog';
 
 import {
     HomeContainer,
@@ -12,6 +12,7 @@ class Home extends Component {
     return (
       <HomeContainer>
         <HomeContent>
+          <PostsCatalog />
         </HomeContent>
       </HomeContainer>
     );
