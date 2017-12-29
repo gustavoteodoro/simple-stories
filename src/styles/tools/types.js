@@ -1,6 +1,6 @@
-export function josefinRegular(fontSize) {
+export function spectralRegular(fontSize) {
     return `
-        font-family: 'Josefin Sans', sans-serif;
+        font-family: 'Spectral SC', sans-serif;
         font-size: ${fontSize}px;
         font-weight: 400;
         -webkit-font-smoothing: antialiased;

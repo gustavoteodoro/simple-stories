@@ -2,16 +2,22 @@
 import styled from 'styled-components';
 
 import {
-    josefinRegular
+    spectralRegular,
 } from '../../styles/tools/types';
+
+import {
+    darkSeaGreen,
+} from '../../styles/settings/colors';
 
 export const LogoContainer = styled.div`
     display: block;
 `;
 
 export const LogoTitle = styled.h1`
-    ${josefinRegular(24)}
-    
+    ${spectralRegular(40)};
+
     display: block;
     margin: 0;
+    padding: 10px;
+    color: ${darkSeaGreen};
 `;
