@@ -1,7 +1,7 @@
 export function josefinRegular(fontSize) {
     return `
         font-family: 'Josefin Sans', sans-serif;
-        font-size: ${fontSize};
+        font-size: ${fontSize}px;
         font-weight: 400;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
@@ -11,7 +11,7 @@ export function josefinRegular(fontSize) {
 export function ubuntuRegular(fontSize) {
     return `
         font-family: 'Ubuntu', sans-serif;
-        font-size: ${fontSize};
+        font-size: ${fontSize}px;
         font-weight: 400;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
@@ -21,7 +21,7 @@ export function ubuntuRegular(fontSize) {
 export function ubuntuRegularItalic(fontSize) {
     return `
         font-family: 'Ubuntu', sans-serif;
-        font-size: ${fontSize};
+        font-size: ${fontSize}px;
         font-style: italic;        
         font-weight: 400;
         -webkit-font-smoothing: antialiased;
@@ -32,7 +32,7 @@ export function ubuntuRegularItalic(fontSize) {
 export function ubuntuBold(fontSize) {
     return `
         font-family: 'Ubuntu', sans-serif;
-        font-size: ${fontSize};
+        font-size: ${fontSize}px;
         font-weight: 700;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
@@ -42,7 +42,7 @@ export function ubuntuBold(fontSize) {
 export function ubuntuBoldItalic(fontSize) {
     return `
         font-family: 'Ubuntu', sans-serif;
-        font-size: ${fontSize};
+        font-size: ${fontSize}px;
         font-style: italic;        
         font-weight: 700;
         -webkit-font-smoothing: antialiased;
