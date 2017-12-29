@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Header from '../../modules/Header';
+import Home from '../../pages/Home';
 
 import {
     MainTemplate,
@@ -11,6 +12,7 @@ class Main extends Component {
     return (
       <MainTemplate>
           <Header />
+          <Home />
       </MainTemplate>
     );
   }
