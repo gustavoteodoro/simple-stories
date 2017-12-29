@@ -9,10 +9,6 @@ import {
 } from './styles';
 
 class FeaturedPost extends Component {
-    constructor(props){
-        super(props);
-    }
-
     render() {
         const {
             post,

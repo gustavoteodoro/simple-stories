@@ -7,9 +7,7 @@ import {
 
 import {
     black,
-    darkBlueGray,
     japeneseIndigo,
-    darkSeaGreen,
     white,
 } from '../../styles/settings/colors';
 
