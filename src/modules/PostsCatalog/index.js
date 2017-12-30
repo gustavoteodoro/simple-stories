@@ -6,16 +6,12 @@ import {
   PostsCatalogContainer,
 } from './styles';
 
-import {
-  featuredPosts,
-} from './data.json';
-
 class PostsCatalog extends Component {
   render() {
     return (
       <PostsCatalogContainer>
         {
-          featuredPosts.map((post) => (
+          this.props.stories.map((post) => (
             <FeaturedPost post={post} />
           ))
         }

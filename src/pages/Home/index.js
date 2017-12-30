@@ -8,11 +8,31 @@ import {
 } from './styles';
 
 class Home extends Component {
+  constructor(props) {
+      super(props);
+      this.state = {
+          stories: {},
+      }
+  }
+
+  componentWillMount() {
+    fetch('http://localhost:3001/stories')
+    .then(results => {
+      return results.json()
+    }).then(data => {
+      let storiesData = data;
+      this.setState({stories: storiesData});
+    })
+  }
+
   render() {
     return (
       <HomeContainer>
         <HomeContent>
-          <PostsCatalog />
+          {
+            this.state.stories.featuredPosts &&
+              <PostsCatalog stories={this.state.stories.featuredPosts} />
+          }
         </HomeContent>
       </HomeContainer>
     );
