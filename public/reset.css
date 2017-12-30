@@ -5,5 +5,7 @@ body {
 }
 
 a {
+  cursor: inherit;
+  color: inherit;
   text-decoration: none;
 }

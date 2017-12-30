@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 
 import {
+    Link,
+} from 'react-router-dom';
+
+import {
     FeaturedPostContainer,
     FeaturedPostTitle,
     FeaturedPostCover,
@@ -16,10 +20,12 @@ class FeaturedPost extends Component {
 
         return (
             <FeaturedPostContainer>
-                <FeaturedPostCover src={'/assets/' + post.cover} />
-                <FeaturedPostTitle>{post.title}</FeaturedPostTitle>
-                <FeaturedPostAuthor>{post.author}</FeaturedPostAuthor>
-                <FeaturedPostSummary>{post.summary}</FeaturedPostSummary>
+                <Link to="/storie">
+                    <FeaturedPostCover src={'/assets/' + post.cover} />
+                    <FeaturedPostTitle>{post.title}</FeaturedPostTitle>
+                    <FeaturedPostAuthor>{post.author}</FeaturedPostAuthor>
+                    <FeaturedPostSummary>{post.summary}</FeaturedPostSummary>
+                </Link>
             </FeaturedPostContainer>
         );
     }
