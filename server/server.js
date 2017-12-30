@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 
-app.get('/stories', function (req, res) {
+app.get('/api/stories', function (req, res) {
     res.json(
         {
             "featuredPosts": [

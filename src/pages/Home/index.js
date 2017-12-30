@@ -16,7 +16,7 @@ class Home extends Component {
   }
 
   componentWillMount() {
-    fetch('http://localhost:3001/stories')
+    fetch('/api/stories')
     .then(results => {
       return results.json()
     }).then(data => {
