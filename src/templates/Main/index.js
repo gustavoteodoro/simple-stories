@@ -7,6 +7,7 @@ import {
 
 import Header from '../../modules/Header';
 import Home from '../../pages/Home';
+import Post from '../../pages/Post';
 
 import {
     MainTemplate,
@@ -19,6 +20,7 @@ class Main extends Component {
         <MainTemplate>
             <Header />
             <Route exact path="/" component={Home}/>
+            <Route path="/storie" component={Post}/>
         </MainTemplate>
       </Router>
     );
