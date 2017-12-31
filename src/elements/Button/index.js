@@ -6,6 +6,7 @@ import {
 
 import {
   ButtonContainer,
+  ButtonText,
 } from './styles';
 
 class Button extends Component {

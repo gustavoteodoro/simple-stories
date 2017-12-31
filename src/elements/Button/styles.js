@@ -9,10 +9,26 @@ import {
     white,
 } from '../../styles/settings/colors';
 
-export const ButtonContainer = styled.div`
-    display: block;
+export const ButtonText = styled.span`
+    ${ubuntuRegular(20)}
+
+    display: inline-block;
+    color: ${white};
+    padding: 10px;
 `;
 
-export const ButtonText = styled.span`
+export const ButtonContainer = styled.div`
     display: block;
+    background: ${japeneseIndigo};
+    text-align: center;
+    cursor: pointer;
+    transition: background .4s ease;
+
+    &:hover {
+        background: ${white};
+
+        ${ButtonText} {
+            color: ${japeneseIndigo};
+        }
+    }
 `;

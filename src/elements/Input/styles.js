@@ -35,5 +35,15 @@ export const InputContainer = styled.div`
         border: 0;
         color: ${japeneseIndigo};
         background: ${white};
+        
+        &[type="submit"] {
+            cursor: pointer;
+            transition: background .4s ease;
+
+            &:hover{
+                background: ${japeneseIndigo};
+                color: ${white};
+            }
+        }
     }
 `;

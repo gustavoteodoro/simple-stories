@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 
-import {
-  Link,
-} from 'react-router-dom';
-
 import Input from '../../elements/Input';
+import Button from '../../elements/Button';
 
 import {
   LoginFormContainer,
@@ -20,7 +17,7 @@ class LoginForm extends Component {
           <Input type='email' label='E-mail' required />
           <Input type='password' label='Password' required />
           <Input type='submit' value='Login' />
-          <Link to="/create-account">Create account</Link>
+          <Button to="/create-account" text="Create account" />
         </form>
       </LoginFormContainer>
     );
