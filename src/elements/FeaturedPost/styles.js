@@ -42,12 +42,14 @@ export const FeaturedPostTitle = styled.h2`
     display: block;
     color: ${japeneseIndigo};
     margin: 25px 0 5px;
+    cursor: pointer;
 `;
 
 export const FeaturedPostCover = styled.img`
     display: block;
     width: calc(100% + 20px);
     margin: -10px;
+    cursor: pointer;
 `;
 
 export const FeaturedPostAuthor = styled.span`

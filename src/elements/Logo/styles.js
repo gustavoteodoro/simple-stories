@@ -20,4 +20,5 @@ export const LogoTitle = styled.h1`
     margin: 0;
     padding: 10px;
     color: ${white};
+    cursor: pointer;
 `;
