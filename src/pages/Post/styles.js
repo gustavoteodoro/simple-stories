@@ -2,11 +2,13 @@ import styled from 'styled-components';
 
 import {
     ubuntuRegular,
+    ubuntuRegularItalic,
     ubuntuBold,
     spectralRegular,
 } from '../../styles/tools/types';
 
 import {
+    darkBlueGray,
     japeneseIndigo,
     darkSeaGreen,
     white,
@@ -21,6 +23,10 @@ export const PostContent = styled.article`
     max-width: 1200px;
     margin: 0 auto;
 `
+
+export const PostHeader = styled.footer`
+    display: block;
+`;
 
 export const PostTitle = styled.h1`
     ${ubuntuBold(120)}
@@ -39,7 +45,7 @@ export const PostText = styled.div`
     ${ubuntuRegular(24)}
 
     line-height: 50px;
-    margin: 60px auto;
+    margin: 60px auto 0;
     max-width: 900px;
     text-align: justify;
 
@@ -52,4 +58,16 @@ export const PostText = styled.div`
             }
         }
     }
+`;
+
+export const PostFooter = styled.footer`
+    display: block;
+    margin: 20px auto 60px;
+    max-width: 900px;
+    text-align: right;
+`;
+
+export const PostAuthor = styled.span`
+    ${ubuntuRegularItalic(24)}
+    color: ${darkBlueGray}
 `;
