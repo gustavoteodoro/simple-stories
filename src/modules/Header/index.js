@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Logo from '../../elements/Logo';
+import HeaderMenu from '../HeaderMenu';
 
 import {
     HeaderContainer,
@@ -13,6 +14,7 @@ class Header extends Component {
       <HeaderContainer>
         <HeaderContent>
           <Logo />
+          <HeaderMenu />
         </HeaderContent>
       </HeaderContainer>
     );

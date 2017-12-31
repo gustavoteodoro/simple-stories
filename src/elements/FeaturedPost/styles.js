@@ -16,7 +16,7 @@ export const FeaturedPostContainer = styled.article`
     box-sizing: border-box;
     padding: 10px;
     margin: 10px;
-    width: 30%;
+    width: 31.6677%;
     box-shadow: 0px 0px 1px 0px ${black};
     background: ${white};
     color: ${black};
@@ -24,7 +24,7 @@ export const FeaturedPostContainer = styled.article`
     overflow: hidden;
 
     &:first-child{
-        width: 40%;
+        width: 45%;
     }
 
     &:nth-child(2) {

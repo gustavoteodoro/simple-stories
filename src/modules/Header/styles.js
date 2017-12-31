@@ -10,6 +10,8 @@ export const HeaderContainer = styled.div`
 `;
 
 export const HeaderContent = styled.div`
+    display: flex;
     max-width: 1200px;
     margin: 0 auto;
-`
+    justify-content: space-between;
+`;
