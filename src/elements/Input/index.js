@@ -16,7 +16,7 @@ class Input extends Component {
     return (
       <InputContainer>
         <label>
-          {label}
+          <span>{label}</span>
           <input type={type} required={required} value={value} />
         </label>
       </InputContainer>
