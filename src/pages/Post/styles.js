@@ -2,13 +2,11 @@ import styled from 'styled-components';
 
 import {
     ubuntuRegular,
-    ubuntuRegularItalic,
     ubuntuBold,
     spectralRegular,
 } from '../../styles/tools/types';
 
 import {
-    darkBlueGray,
     japeneseIndigo,
     darkSeaGreen,
     white,
@@ -68,6 +66,8 @@ export const PostFooter = styled.footer`
 `;
 
 export const PostAuthor = styled.span`
-    ${ubuntuRegularItalic(24)}
-    color: ${darkBlueGray}
+    ${ubuntuRegular(20)}
+    color: ${white};
+    background: ${darkSeaGreen};
+    padding: 5px;
 `;
