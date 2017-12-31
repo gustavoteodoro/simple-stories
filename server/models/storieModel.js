@@ -11,6 +11,6 @@ var storieSchema = new Schema ({
   storieDate: {type: Date, default: Date.now},
 });
 
-var StorieModel = mongoose.model('Course', storieSchema);
+var StorieModel = mongoose.model('Storie', storieSchema);
 
 module.exports = StorieModel;
