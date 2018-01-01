@@ -22,7 +22,7 @@ export const PostContent = styled.article`
     margin: 0 auto;
 `
 
-export const PostHeader = styled.footer`
+export const PostHeader = styled.header`
     display: block;
 `;
 

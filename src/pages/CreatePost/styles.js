@@ -7,6 +7,7 @@ import {
 } from '../../styles/tools/types';
 
 import {
+    darkBlueGray,
     japeneseIndigo,
     darkSeaGreen,
     white,
@@ -22,7 +23,7 @@ export const CreatePostContent = styled.article`
     margin: 0 auto;
 `
 
-export const CreatePostHeader = styled.footer`
+export const CreatePostHeader = styled.header`
     display: block;
 `;
 
@@ -49,14 +50,44 @@ export const CreatePostTitle = styled.h1`
     }
 `;
 
-export const CreatePostCover = styled.img`
+export const CreatePostCover = styled.div`
+    position: relative;
+    min-height: 400px;
+
+    div{
+        display: block;
+        position: absolute;
+        box-sizing: border-box;
+        top: 0;
+        left: 0;
+        width: 100%;
+        min-height: 400px;
+        border: 2px dashed ${darkSeaGreen};
+    }
+
+    img {
+        display: block;
+        position: relative;
+        width: 100%;
+    }
+`;
+
+export const CreatePostCoverLabel = styled.span`
+    ${ubuntuRegular(24)}
+    
     display: block;
-    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    pointer-events: none;
+    color: ${darkBlueGray};
 `;
 
 export const CreatePostText = styled.div`
     ${ubuntuRegular(24)}
 
+    z-index: 10;
     line-height: 50px;
     margin: 60px auto 0;
     max-width: 900px;
