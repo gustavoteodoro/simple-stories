@@ -14,6 +14,7 @@ class HeaderMenu extends Component {
     return (
       <HeaderMenuContainer>
         <HeaderMenuContent>
+          <Link to="/create-post">Create post</Link>
           <Link to="/login">Login</Link>
           <Link to="/create-account">Create Account</Link>
         </HeaderMenuContent>

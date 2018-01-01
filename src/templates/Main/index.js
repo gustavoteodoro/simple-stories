@@ -8,6 +8,7 @@ import {
 import Header from '../../modules/Header';
 import Home from '../../pages/Home';
 import Post from '../../pages/Post';
+import CreatePost from '../../pages/CreatePost';
 import Login from '../../pages/Login';
 import CreateAccount from '../../pages/CreateAccount';
 
@@ -23,6 +24,7 @@ class Main extends Component {
             <Header />
             <Route exact path="/" component={Home}/>
             <Route path="/storie" component={Post}/>
+            <Route path="/create-post" component={CreatePost}/>
             <Route path="/login" component={Login}/>
             <Route path="/create-account" component={CreateAccount}/>
         </MainTemplate>

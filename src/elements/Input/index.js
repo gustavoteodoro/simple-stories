@@ -10,6 +10,7 @@ class Input extends Component {
       label,
       type,
       required,
+      placeholder,
       value,
     } = this.props;
 
@@ -17,7 +18,7 @@ class Input extends Component {
       <InputContainer>
         <label>
           <span>{label}</span>
-          <input type={type} required={required} value={value} />
+          <input type={type} required={required} placeholder={placeholder} value={value} />
         </label>
       </InputContainer>
     );

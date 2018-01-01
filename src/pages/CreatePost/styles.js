@@ -12,35 +12,49 @@ import {
     white,
 } from '../../styles/settings/colors';
 
-export const PostContainer = styled.div`
+export const CreatePostContainer = styled.div`
     display: block;
     background: ${white};
 `;
 
-export const PostContent = styled.article`
+export const CreatePostContent = styled.article`
     max-width: 1200px;
     margin: 0 auto;
 `
 
-export const PostHeader = styled.footer`
+export const CreatePostHeader = styled.footer`
     display: block;
 `;
 
-export const PostTitle = styled.h1`
+export const CreatePostTitle = styled.h1`
     ${ubuntuBold(120)}
-
+    
+    width: 100%;
+    min-height: 160px;
+    box-sizign: border-box;
     word-break: break-word;
+    position: relative;
     color: ${japeneseIndigo};
     margin: 0;
     padding: 20px 0;
+
+    input {
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+    }
 `;
 
-export const PostCover = styled.img`
+export const CreatePostCover = styled.img`
     display: block;
     width: 100%;
 `;
 
-export const PostText = styled.div`
+export const CreatePostText = styled.div`
     ${ubuntuRegular(24)}
 
     line-height: 50px;
@@ -59,14 +73,14 @@ export const PostText = styled.div`
     }
 `;
 
-export const PostFooter = styled.footer`
+export const CreatePostFooter = styled.footer`
     display: block;
     margin: 20px auto 60px;
     max-width: 900px;
     text-align: right;
 `;
 
-export const PostAuthor = styled.span`
+export const CreatePostAuthor = styled.span`
     ${ubuntuRegular(20)}
     color: ${white};
     background: ${darkSeaGreen};
