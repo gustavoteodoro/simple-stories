@@ -1,12 +1,51 @@
 var express = require('express');
-var app = express();
 var mongoose = require('mongoose');
+var passport = require('passport');
+var Strategy = require('passport-local').Strategy;
 mongoose.connect('mongodb://localhost:27017/simple-stories');
 var bodyParser = require('body-parser');
+
+var app = express();
+var UserModel = require('./models/userModel');
+var StorieModel = require('./models/storieModel');
+
+passport.use(new Strategy(
+    function(username, password, cb) {
+        UserModel.findOne({ userEmail: username }, function(err, user) {
+            if (err) { return cb(err); }
+            if (!user) { return cb(null, false); }
+            if (user.userPassword != password) { return cb(null, false); }
+            return cb(null, user);
+        });
+    }
+));
+
+passport.serializeUser(function(user, cb) {
+    cb(null, user._id);
+});
+  
+passport.deserializeUser(function(id, cb) {
+    UserModel.findOne({ _id: id }, function(err, user) {
+        if (err) { return cb(err); }
+        cb(null, user);
+    });
+});
+  
+app.use(require('morgan')('combined'));
+app.use(require('cookie-parser')());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(require('express-session')({ secret: 'keyboard cat', resave: false, saveUninitialized: false }));
 
-var UserModel = require('./models/userModel');
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.post('/api/login',
+    passport.authenticate('local'),
+    function (req, res) {
+        res.json('Login successfully.')
+    }
+);
 
 app.post('/api/create-account', function (req, res) {
     UserModel.findOne({ userEmail: req.body.email }, function(err, user) {
@@ -27,49 +66,22 @@ app.post('/api/create-account', function (req, res) {
 });
 
 app.get('/api/stories', function (req, res) {
-    res.json(
-        {
-            "featuredPosts": [
-                {
-                    "title": "Anxious fans crawl out of a portal in a tree on a ham radio",
-                    "author": "Gustavo Teodoro",
-                    "cover": "will.gif",
-                    "summary": "A flashlight deciphers Christmas lights despite the fact that Terry Ives has to explain unwitting neighbors nearby. Netflix subscribers flip a van using telekinesis under Lucas' slingshot."
-                },
-                {
-                    "title": "In a world where James hides around a Millennium Falcon model",
-                    "author": "Gustavo Teodoro",
-                    "cover": "ghostbusters.jpg",
-                    "summary": "Unbeknownst to some, Baby Holly casts a Spell of Protection with waffles on a walkie talkie. Unbeknownst to some, Lucas wears a wig over bananas on Jonathan's camera."
-                },
-                {
-                    "title": "Apples use psychic powers under an Eggo",
-                    "author": "Gustavo Teodoro",
-                    "cover": "madmax.jpg",
-                    "summary": "In a world where skeptics sneak food downstairs on a walkie talkie. Scientists question the sanity of Jonathan, ingorning that Officer Callahan hides."
-                },
-                {
-                    "title": "Unbeknownst to some, Benny Hammond casts a Spell of Protection on skeptics",
-                    "author": "Gustavo Teodoro",
-                    "cover": "et.jpg",
-                    "summary": "An Eggo demands justice for Barb while Mike runs from scientists. In a world where Bazooka Bubble Gum secretly leave Eggos in the woods in a Millennium Falcon model."
-                },
-                {
-                    "title": "Will, Dr. Brenner, Eleven, and Lonnie Byers demand justice for Barb",
-                    "author": "Gustavo Teodoro",
-                    "cover": "contatos.jpg",
-                    "summary": "Steve casts a fireball spell while across a blanket fort, Bazooka Bubble Gum decipher Christmas lights under an Eggo. Chocolate pudding uses psychic powers despite the fact that Hopper thinks about police station donuts nearby."
-                },
-                {
-                    "title": "Supermarket patrons decipher Christmas lights over a copy of X-men #143",
-                    "author": "Gustavo Teodoro",
-                    "cover": "dragon.jpg",
-                    "summary": "Lonnie Byers wears a wig while across the junkyard, skeptics sneak food downstairs around a walkie talkie. A copy of X-men #143 casts a Spell of Protection while Joyce hunts down Bazooka Bubble Gum."
-                }
-            ]
-        }
-    );
+    StorieModel.find().exec(function(error, stories){
+        if(error) return console.error(error);
+        res.json({
+            "user": req.user,
+            "stories": stories
+        })
+    })
 });
+
+app.get('/api/create-storie',
+    function(req, res){
+        res.json({
+            "user": req.user
+        })
+    }
+);
 
 app.listen(3001, function () {
     console.log('Server running on port 3001');
