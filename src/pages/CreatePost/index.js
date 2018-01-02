@@ -17,6 +17,7 @@ import {
 import {
   initialTitle,
   coverLabel,
+  initialText,
 } from './data.json';
 
 class CreatePost extends Component {
@@ -24,12 +25,16 @@ class CreatePost extends Component {
     super(props);
     this.state = {
       title: initialTitle,
-      files: [],
+      file: [],
+      text: initialText,
     }
 
     this.handleChangeTitle = this.handleChangeTitle.bind(this);
     this.handleClickTitle = this.handleClickTitle.bind(this);
     this.handleBlurTitle = this.handleBlurTitle.bind(this);
+    this.handleChangeText = this.handleChangeText.bind(this);
+    this.handleClickText = this.handleClickText.bind(this);
+    this.handleBlurText = this.handleBlurText.bind(this);
   }
 
   handleChangeTitle(e) {
@@ -54,9 +59,33 @@ class CreatePost extends Component {
     }
   }
 
-  onDropFiles(files) {
+  handleChangeText(e) {
     this.setState({
-      files
+      text: e.target.value
+    })
+  }
+
+  handleClickText(e) {
+    if(this.state.text === initialText){
+      this.setState({
+        text: ''
+      })
+    }
+  }
+
+  handleBlurText(e) {
+    if(this.state.text === ''){
+      this.setState({
+        text: initialText
+      })
+    }
+  }
+
+  onDropFiles(files) {
+    files.forEach(file => {
+      this.setState({
+        file: file
+      })
     });
   }
 
@@ -82,15 +111,17 @@ class CreatePost extends Component {
                 multiple={false}
                 />
               {
-                this.state.files[0] &&
-                  this.state.files.map(file => (
-                    <img src={file.preview} />
-                  ))
+                this.state.file.preview &&
+                  <img src={this.state.file.preview} alt={this.state.file.name} />
               }
             </CreatePostCover>
           </CreatePostHeader>
           <CreatePostText>
-            <p>Write your text here...</p>
+            <input
+              onChange={this.handleChangeText}
+              onClick={this.handleClickText} 
+              onBlur={this.handleBlurText} />
+            <p>{this.state.text}</p>
           </CreatePostText>
           <CreatePostFooter>
             <CreatePostAuthor>Gustavo Teodoro</CreatePostAuthor>

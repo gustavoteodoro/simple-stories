@@ -40,6 +40,7 @@ export const CreatePostTitle = styled.h1`
     padding: 20px 0;
 
     input {
+        font-size: 1px;
         display: block;
         position: absolute;
         left: 0;
@@ -61,7 +62,7 @@ export const CreatePostCover = styled.div`
         top: 0;
         left: 0;
         width: 100%;
-        min-height: 400px;
+        height: 100%;
         border: 2px dashed ${darkSeaGreen};
     }
 
@@ -69,6 +70,7 @@ export const CreatePostCover = styled.div`
         display: block;
         position: relative;
         width: 100%;
+        pointer-events: none;
     }
 `;
 
@@ -87,19 +89,30 @@ export const CreatePostCoverLabel = styled.span`
 export const CreatePostText = styled.div`
     ${ubuntuRegular(24)}
 
+    position: relative;
     z-index: 10;
     line-height: 50px;
     margin: 60px auto 0;
     max-width: 900px;
+    min-height: 300px;
     text-align: justify;
 
+    input {
+        font-size: 1px;
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+    }
+
     p {
-        &:first-child{
-            &:first-letter{
-                ${spectralRegular(360)}
-                color: ${darkSeaGreen};    
-                margin-left: -150px;
-            }
+        &:first-letter{
+            ${spectralRegular(360)}
+            color: ${darkSeaGreen};    
+            margin-left: -150px;
         }
     }
 `;

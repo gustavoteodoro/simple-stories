@@ -1,4 +1,5 @@
 {
     "initialTitle": "Your title here...",
-    "coverLabel": "Drag and drop you image here"
+    "coverLabel": "Drag and drop your image here",
+    "initialText": "Tell your storie here with one paragraph..."
 }
