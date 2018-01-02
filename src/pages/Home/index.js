@@ -20,7 +20,7 @@ class Home extends Component {
     .then(results => {
       return results.json()
     }).then(data => {
-      let storiesData = data;
+      let storiesData = data.stories;
       this.setState({stories: storiesData});
     })
   }

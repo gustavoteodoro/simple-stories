@@ -17,11 +17,32 @@ import {
 } from './styles';
 
 class Main extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      user: undefined,
+    }
+  }
+
+  componentWillMount() {
+    fetch('/api/auth', {
+      method: 'GET',
+      credentials: 'include',
+    })
+    .then(results => {
+      return results.json()
+    }).then(data => {
+      if(data.user){
+        this.setState({user: data.user})
+      }
+    })
+  }
+
   render() {
     return (
       <Router>
         <MainTemplate>
-            <Header />
+            <Header user={this.state.user} />
             <Route exact path="/" component={Home}/>
             <Route path="/storie" component={Post}/>
             <Route path="/create-post" component={CreatePost}/>

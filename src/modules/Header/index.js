@@ -14,7 +14,7 @@ class Header extends Component {
       <HeaderContainer>
         <HeaderContent>
           <Logo />
-          <HeaderMenu />
+          <HeaderMenu user={this.props.user} />
         </HeaderContent>
       </HeaderContainer>
     );

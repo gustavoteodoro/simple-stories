@@ -43,7 +43,9 @@ app.use(passport.session());
 app.post('/api/login',
     passport.authenticate('local'),
     function (req, res) {
-        res.json('Login successfully.')
+        res.json({
+            "user": req.user,
+        })
     }
 );
 
@@ -69,9 +71,15 @@ app.get('/api/stories', function (req, res) {
     StorieModel.find().exec(function(error, stories){
         if(error) return console.error(error);
         res.json({
-            "user": req.user,
             "stories": stories
         })
+    })
+});
+
+app.get('/api/auth', function (req, res) {
+    console.log(req.user);
+    res.json({
+        "user": req.user
     })
 });
 

@@ -14,9 +14,22 @@ class HeaderMenu extends Component {
     return (
       <HeaderMenuContainer>
         <HeaderMenuContent>
-          <Link to="/create-post">Create post</Link>
-          <Link to="/login">Login</Link>
-          <Link to="/create-account">Create Account</Link>
+          {
+            this.props.user &&
+              <div>
+                <span>Hello, {this.props.user.userName}</span>
+                <Link to="/create-post">Create post</Link>
+                <Link to="/logout">Logout</Link>
+              </div>
+          }
+          {
+            !this.props.user &&
+              <div>
+                <Link to="/login">Login</Link>
+                <Link to="/create-account">Create Account</Link>
+              </div>
+          }
+          
         </HeaderMenuContent>
       </HeaderMenuContainer>
     );
