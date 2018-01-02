@@ -82,6 +82,16 @@ app.get('/api/stories', function (req, res) {
     })
 });
 
+app.get('/api/storie/:slug', function (req, res) {
+    StorieModel.findOne({ storieSlug: req.params.slug }, function(err, storie) {
+        if(storie){
+            res.json({
+                "storie": storie
+            })
+        }
+    });
+});
+
 app.get('/api/auth', function (req, res) {
     console.log(req.user);
     res.json({
@@ -98,13 +108,12 @@ app.get('/api/create-storie',
 );
 
 app.post('/api/create-storie', function(req, res){
-    console.log('tamoaqui');
     StorieModel.findOne({ storieSlug: req.body.storieSlug }, function(err, storie) {
         const newStorieSlug = req.body.storieSlug;
         if(storie){
             newStorieSlug = req.body.storieSlug + Math.floor((Math.random() * 100) + 1);
         }
-        console.log('tamoaqui', storie);
+        
         var storie = new StorieModel({
             storieSlug: req.body.storieSlug,
             storieTitle: req.body.storieTitle,
@@ -112,8 +121,7 @@ app.post('/api/create-storie', function(req, res){
             storieCover: req.body.storieCover.preview,
             storieText: req.body.storieText
         });
-        storie.save(function(error, storie){        
-            console.log('tamoaqui2', storie);
+        storie.save(function(error, storie){
             if(error) return console.error(error);
             res.json('Storie created.');
         })
