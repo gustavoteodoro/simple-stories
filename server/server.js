@@ -2,6 +2,29 @@ var express = require('express');
 var app = express();
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/simple-stories');
+var bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+var UserModel = require('./models/userModel');
+
+app.post('/api/create-account', function (req, res) {
+    UserModel.findOne({ userEmail: req.body.email }, function(err, user) {
+        if(user){
+            res.json('Email already registerd.');
+        } else {
+            var user = new UserModel({
+                userName: req.body.name,
+                userEmail: req.body.email,
+                userPassword: req.body.password,
+            });
+            user.save(function(error, user){
+                if(error) return console.error(error);
+                res.json('User created successfully.');
+            })
+        }
+    });
+});
 
 app.get('/api/stories', function (req, res) {
     res.json(
