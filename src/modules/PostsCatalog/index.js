@@ -12,7 +12,7 @@ class PostsCatalog extends Component {
       <PostsCatalogContainer>
         {
           this.props.stories.map((post) => (
-            <FeaturedPost post={post} key={post.title} />
+            <FeaturedPost post={post} key={post.storieSlug} />
           ))
         }
       </PostsCatalogContainer>

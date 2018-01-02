@@ -7,4 +7,5 @@ import {
 export const MainTemplate = styled.div`
     display: block;
     background: ${lightGrey};
+    min-height: calc(100vh);
 `;

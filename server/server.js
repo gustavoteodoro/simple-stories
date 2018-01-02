@@ -97,6 +97,29 @@ app.get('/api/create-storie',
     }
 );
 
+app.post('/api/create-storie', function(req, res){
+    console.log('tamoaqui');
+    StorieModel.findOne({ storieSlug: req.body.storieSlug }, function(err, storie) {
+        const newStorieSlug = req.body.storieSlug;
+        if(storie){
+            newStorieSlug = req.body.storieSlug + Math.floor((Math.random() * 100) + 1);
+        }
+        console.log('tamoaqui', storie);
+        var storie = new StorieModel({
+            storieSlug: req.body.storieSlug,
+            storieTitle: req.body.storieTitle,
+            storieAuthor: req.body.storieAuthor,
+            storieCover: req.body.storieCover.preview,
+            storieText: req.body.storieText
+        });
+        storie.save(function(error, storie){        
+            console.log('tamoaqui2', storie);
+            if(error) return console.error(error);
+            res.json('Storie created.');
+        })
+    });
+});
+
 app.listen(3001, function () {
     console.log('Server running on port 3001');
 });

@@ -7,7 +7,6 @@ var storieSchema = new Schema ({
   storieAuthor: String,
   storieCover: String,
   storieText: String,
-  storieAuthor: String,
   storieDate: {type: Date, default: Date.now},
 });
 

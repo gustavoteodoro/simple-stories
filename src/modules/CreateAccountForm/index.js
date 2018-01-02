@@ -33,8 +33,8 @@ class CreateAccountForm extends Component {
         name: this.state.name,
         email: this.state.email,
         password: this.state.password
-      }),
-    });
+      })
+    }).then(window.location.href = '/login');
   }
 
   render() {

@@ -35,6 +35,25 @@ class CreatePost extends Component {
     this.handleChangeText = this.handleChangeText.bind(this);
     this.handleClickText = this.handleClickText.bind(this);
     this.handleBlurText = this.handleBlurText.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    fetch('/api/create-storie', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        storieSlug: this.state.title.toLowerCase().split(' ').join('-'),
+        storieTitle: this.state.title,
+        storieAuthor: this.props.user.userName,
+        storieCover: this.state.file,
+        storieText: this.state.text,
+      })
+    });
   }
 
   handleChangeTitle(e) {
@@ -93,39 +112,42 @@ class CreatePost extends Component {
     return (
       <CreatePostContainer>
         <CreatePostContent>
-          <CreatePostHeader>
-            <CreatePostTitle>
+          <form onSubmit={this.handleSubmit}>
+            <CreatePostHeader>
+              <CreatePostTitle>
+                <input
+                  onChange={this.handleChangeTitle}
+                  onClick={this.handleClickTitle} 
+                  onBlur={this.handleBlurTitle} />
+                {this.state.title}
+              </CreatePostTitle>
+              <CreatePostCover>
+                <CreatePostCoverLabel>
+                  {coverLabel}
+                </CreatePostCoverLabel>
+                <Dropzone
+                  style={{display: 'block'}}
+                  onDrop={this.onDropFiles.bind(this)}
+                  multiple={false}
+                  />
+                {
+                  this.state.file.preview &&
+                    <img src={this.state.file.preview} alt={this.state.file.name} />
+                }
+              </CreatePostCover>
+            </CreatePostHeader>
+            <CreatePostText>
               <input
-                onChange={this.handleChangeTitle}
-                onClick={this.handleClickTitle} 
-                onBlur={this.handleBlurTitle} />
-              {this.state.title}
-            </CreatePostTitle>
-            <CreatePostCover>
-              <CreatePostCoverLabel>
-                {coverLabel}
-              </CreatePostCoverLabel>
-              <Dropzone
-                style={{display: 'block'}}
-                onDrop={this.onDropFiles.bind(this)}
-                multiple={false}
-                />
-              {
-                this.state.file.preview &&
-                  <img src={this.state.file.preview} alt={this.state.file.name} />
-              }
-            </CreatePostCover>
-          </CreatePostHeader>
-          <CreatePostText>
-            <input
-              onChange={this.handleChangeText}
-              onClick={this.handleClickText} 
-              onBlur={this.handleBlurText} />
-            <p>{this.state.text}</p>
-          </CreatePostText>
-          <CreatePostFooter>
-            <CreatePostAuthor>Gustavo Teodoro</CreatePostAuthor>
-          </CreatePostFooter>
+                onChange={this.handleChangeText}
+                onClick={this.handleClickText} 
+                onBlur={this.handleBlurText} />
+              <p>{this.state.text}</p>
+            </CreatePostText>
+            <CreatePostFooter>
+              <CreatePostAuthor>{this.props.user ? this.props.user.userName : ''}</CreatePostAuthor>
+            </CreatePostFooter>
+            <input type='submit' value='Publish storie' />
+          </form>
         </CreatePostContent>
       </CreatePostContainer>
     );

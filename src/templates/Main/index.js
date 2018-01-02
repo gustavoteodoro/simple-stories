@@ -46,7 +46,9 @@ class Main extends Component {
             <Header user={this.state.user} />
             <Route exact path="/" component={Home}/>
             <Route path="/storie" component={Post}/>
-            <Route path="/create-post" component={CreatePost}/>
+            <Route path="/create-post" render={(props) => (
+              <CreatePost user={this.state.user} />
+            )}/>
             <Route path="/login" component={Login}/>
             <Route path="/create-account" component={CreateAccount}/>
             <Route path="/logout" component={Logout}/>

@@ -20,11 +20,11 @@ class FeaturedPost extends Component {
 
         return (
             <FeaturedPostContainer>
-                <Link to="/storie">
-                    <FeaturedPostCover src={'/assets/' + post.cover} />
-                    <FeaturedPostTitle>{post.title}</FeaturedPostTitle>
-                    <FeaturedPostAuthor>{post.author}</FeaturedPostAuthor>
-                    <FeaturedPostSummary>{post.summary}</FeaturedPostSummary>
+                <Link to={'/storie/' + post.storieSlug}>
+                    <FeaturedPostCover src={post.storieCover} />
+                    <FeaturedPostTitle>{post.storieTitle}</FeaturedPostTitle>
+                    <FeaturedPostAuthor>{post.storieAuthor}</FeaturedPostAuthor>
+                    <FeaturedPostSummary>{post.storieText.substring(0, 140) + '...'}</FeaturedPostSummary>
                 </Link>
             </FeaturedPostContainer>
         );

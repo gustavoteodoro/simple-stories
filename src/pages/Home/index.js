@@ -30,8 +30,8 @@ class Home extends Component {
       <HomeContainer>
         <HomeContent>
           {
-            this.state.stories.featuredPosts &&
-              <PostsCatalog stories={this.state.stories.featuredPosts} />
+            this.state.stories[0] &&
+              <PostsCatalog stories={this.state.stories} />
           }
         </HomeContent>
       </HomeContainer>
