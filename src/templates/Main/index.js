@@ -10,6 +10,7 @@ import Home from '../../pages/Home';
 import Post from '../../pages/Post';
 import CreatePost from '../../pages/CreatePost';
 import Login from '../../pages/Login';
+import Logout from '../../pages/Logout';
 import CreateAccount from '../../pages/CreateAccount';
 
 import {
@@ -48,6 +49,7 @@ class Main extends Component {
             <Route path="/create-post" component={CreatePost}/>
             <Route path="/login" component={Login}/>
             <Route path="/create-account" component={CreateAccount}/>
+            <Route path="/logout" component={Logout}/>
         </MainTemplate>
       </Router>
     );

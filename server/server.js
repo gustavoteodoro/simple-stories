@@ -49,6 +49,12 @@ app.post('/api/login',
     }
 );
 
+app.get('/api/logout', function (req, res) {
+    req.session.destroy(function (err) {
+        res.json("Logout successfully")
+    })
+});
+
 app.post('/api/create-account', function (req, res) {
     UserModel.findOne({ userEmail: req.body.email }, function(err, user) {
         if(user){

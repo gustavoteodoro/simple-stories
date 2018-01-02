@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-import {withRouter} from "react-router-dom";
-
 import Input from '../../elements/Input';
 import Button from '../../elements/Button';
 
@@ -42,7 +40,7 @@ class LoginForm extends Component {
       }
     }).then(data => {
         if(data.user){
-          this.props.history.push('/');
+          window.location.href = '/'
         }
     });
   }
@@ -62,4 +60,4 @@ class LoginForm extends Component {
   }
 }
 
-export default withRouter(LoginForm);
+export default LoginForm;
