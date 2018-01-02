@@ -9,7 +9,10 @@
   "author": "Gustavo Teodoro",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.18.2",
     "express": "^4.16.2",
-    "mongoose": "^5.0.0-rc0"
+    "fs": "0.0.1-security",
+    "mongoose": "^5.0.0-rc0",
+    "passport-local": "^1.0.0"
   }
 }
