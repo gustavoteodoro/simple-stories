@@ -12,13 +12,14 @@ class Input extends Component {
       required,
       placeholder,
       value,
+      onChange,
     } = this.props;
 
     return (
       <InputContainer>
         <label>
           <span>{label}</span>
-          <input type={type} required={required} placeholder={placeholder} value={value} />
+          <input type={type} required={required} placeholder={placeholder} value={value} onChange={onChange} />
         </label>
       </InputContainer>
     );
