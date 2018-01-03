@@ -1,5 +1,3 @@
-#simple-stories
-
 ## Requirements
 
 * Node.js
@@ -12,12 +10,7 @@ At the project root run
   npm i
 ```
 
-At server root
-```
-  cd server
-```
-
-run
+At server root `cd server` run
 ```
   npm i
 ```
