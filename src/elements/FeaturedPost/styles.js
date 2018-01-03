@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { media } from '../../styles/tools/media';
+
 import {
     ubuntuRegular,
     ubuntuBold,
@@ -34,6 +36,16 @@ export const FeaturedPostContainer = styled.article`
     &:nth-child(3) {
         width: 25%;
     }
+
+    ${media.mobile`
+        width: 100%;
+
+        &:first-child,
+        &:nth-child(2),
+        &:nth-child(3) {
+            width: 100%;
+        }
+    `}
 `;
 
 export const FeaturedPostTitle = styled.h2`

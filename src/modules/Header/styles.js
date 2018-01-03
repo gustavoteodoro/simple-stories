@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { media } from '../../styles/tools/media';
+
 import {
     darkSeaGreen,
 } from '../../styles/settings/colors';
@@ -14,4 +16,9 @@ export const HeaderContent = styled.div`
     max-width: 1200px;
     margin: 0 auto;
     justify-content: space-between;
+
+    ${media.mobile`
+        display: block;
+        text-align: center;
+    `}
 `;
