@@ -17,10 +17,7 @@ At server root `cd server` run
 
 ## Running
 
-Be sure to turn on the Mongo
-```
-  sudo mongod
-```
+Be sure to turn on the MongoDB `sudo mongod`
 
 
 At the project root run
