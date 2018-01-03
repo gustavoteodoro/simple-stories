@@ -8,6 +8,7 @@ import {
   CreateAccountFormContainer,
   CreateAccountFormTitle,
   LinkLogin,
+  CreateAccountFormError,
 } from './styles';
 
 class CreateAccountForm extends Component {
@@ -17,24 +18,32 @@ class CreateAccountForm extends Component {
       name: '',
       email: '',
       password: '',
+      confirmPassword: '',
+      alertConfirmPassword: false,
     }
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    fetch('/api/create-account', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        name: this.state.name,
-        email: this.state.email,
-        password: this.state.password
+    if(this.state.password === this.state.confirmPassword){
+      fetch('/api/create-account', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: this.state.name,
+          email: this.state.email,
+          password: this.state.password
+        })
+      }).then(window.location.href = '/login');
+    } else {
+      this.setState({
+        alertConfirmPassword: true
       })
-    }).then(window.location.href = '/login');
+    }
   }
 
   render() {
@@ -45,7 +54,11 @@ class CreateAccountForm extends Component {
           <Input type='name' label='Name' onChange={(e) => this.setState({name: e.target.value})} required />
           <Input type='email' label='E-mail' onChange={(e) => this.setState({email: e.target.value})} required />
           <Input type='password' label='Password' onChange={(e) => this.setState({password: e.target.value})} required />
-          <Input type='password' label='Confirm password' required />
+          <Input type='password' label='Confirm password' onChange={(e) => this.setState({confirmPassword: e.target.value})} required />
+          {
+            this.state.alertConfirmPassword &&
+              <CreateAccountFormError>Passwords do not match</CreateAccountFormError>
+          }
           <Input type='submit' value='Create account' />
           <LinkLogin>Already have an account? <Link to="/login">Sign in.</Link></LinkLogin>
         </form>
