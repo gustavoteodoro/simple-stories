@@ -40,6 +40,8 @@ class CreatePost extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    
+
     fetch('/api/create-storie', {
       method: 'POST',
       headers: {
