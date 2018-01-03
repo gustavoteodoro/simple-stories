@@ -40,7 +40,7 @@ class Post extends Component {
         <PostContent>
           <PostHeader>
             <PostTitle>{storie.storieTitle}</PostTitle>
-            <PostCover src={storie.storieCover} alt={storie.storieTitle} />
+            <PostCover src={'/uploads/' + storie.storieCover} alt={storie.storieTitle} />
           </PostHeader>
           <PostText>
             <p>{storie.storieText}</p>

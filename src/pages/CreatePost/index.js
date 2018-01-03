@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import Dropzone from 'react-dropzone';
 
 import {
@@ -12,6 +11,7 @@ import {
     CreatePostAuthor,
     CreatePostFooter,
     CreatePostCoverLabel,
+    CreatPostSubmit,
 } from './styles';
 
 import {
@@ -40,8 +40,6 @@ class CreatePost extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    
-
     fetch('/api/create-storie', {
       method: 'POST',
       headers: {
@@ -52,10 +50,9 @@ class CreatePost extends Component {
         storieSlug: this.state.title.toLowerCase().split(' ').join('-'),
         storieTitle: this.state.title,
         storieAuthor: this.props.user.userName,
-        storieCover: this.state.file,
         storieText: this.state.text,
       })
-    });
+    }).then(window.location.href = '/');
   }
 
   handleChangeTitle(e) {
@@ -120,7 +117,8 @@ class CreatePost extends Component {
                 <input
                   onChange={this.handleChangeTitle}
                   onClick={this.handleClickTitle} 
-                  onBlur={this.handleBlurTitle} />
+                  onBlur={this.handleBlurTitle}
+                  required />
                 {this.state.title}
               </CreatePostTitle>
               <CreatePostCover>
@@ -142,13 +140,16 @@ class CreatePost extends Component {
               <input
                 onChange={this.handleChangeText}
                 onClick={this.handleClickText} 
-                onBlur={this.handleBlurText} />
+                onBlur={this.handleBlurText}
+                required />
               <p>{this.state.text}</p>
             </CreatePostText>
             <CreatePostFooter>
               <CreatePostAuthor>{this.props.user ? this.props.user.userName : ''}</CreatePostAuthor>
             </CreatePostFooter>
-            <input type='submit' value='Publish storie' />
+            <CreatPostSubmit>
+              <input type='submit' value='Publish storie' />
+            </CreatPostSubmit>
           </form>
         </CreatePostContent>
       </CreatePostContainer>

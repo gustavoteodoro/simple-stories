@@ -130,3 +130,27 @@ export const CreatePostAuthor = styled.span`
     background: ${darkSeaGreen};
     padding: 5px;
 `;
+
+export const CreatPostSubmit = styled.div`
+    display:block;
+    width: 300px;
+    margin: 0 auto;
+
+    input{
+        ${ubuntuRegular(20)}
+
+        width: 100%;
+        box-sizing: border-box;
+        padding: 20px;
+        border: none;
+        background: ${japeneseIndigo};
+        color: ${white};
+        margin: 20px 0 60px;
+        cursor: pointer;
+        transition: opacity .4s ease;
+
+        &:hover{
+            opacity: .8; 
+        }
+    }
+`;
