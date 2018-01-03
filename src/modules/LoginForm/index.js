@@ -6,6 +6,7 @@ import Button from '../../elements/Button';
 import {
   LoginFormContainer,
   LoginFormTitle,
+  LoginFormError,
 } from './styles';
 
 class LoginForm extends Component {
@@ -41,6 +42,10 @@ class LoginForm extends Component {
     }).then(data => {
         if(data.user){
           window.location.href = '/'
+        } else {
+          this.setState({
+            status: data
+          })
         }
     });
   }
@@ -52,6 +57,10 @@ class LoginForm extends Component {
         <form onSubmit={this.handleSubmit}>
           <Input type='email' label='E-mail' onChange={(e) => this.setState({email: e.target.value})} required />
           <Input type='password' label='Password' onChange={(e) => this.setState({password: e.target.value})} required />
+          {
+            this.state.status === 401 &&
+              <LoginFormError>E-mail or password incorrect.</LoginFormError>
+          }
           <Input type='submit' value='Login' />
           <Button to="/create-account" text="Create account" />
         </form>

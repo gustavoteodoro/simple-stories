@@ -3,10 +3,12 @@ import styled from 'styled-components';
 import { media } from '../../styles/tools/media';
 
 import {
+    ubuntuRegular,
     ubuntuBold,
 } from '../../styles/tools/types';
 
 import {
+    darkBlueGray,
     japeneseIndigo,
 } from '../../styles/settings/colors';
 
@@ -26,4 +28,12 @@ export const LoginFormTitle = styled.h2`
 
     text-align: center;
     color: ${japeneseIndigo};
+`;
+
+export const LoginFormError = styled.span`
+    ${ubuntuRegular(14)}
+    display: block;
+    color: ${darkBlueGray};
+    text-align: center;
+    padding: 10px 0;
 `;
