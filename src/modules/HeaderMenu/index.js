@@ -17,7 +17,6 @@ class HeaderMenu extends Component {
           {
             this.props.user &&
               <div>
-                <span>Hello, {this.props.user.userName}</span>
                 <Link to="/create-post">Create post</Link>
                 <Link to="/logout">Logout</Link>
               </div>
