@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { media } from '../../styles/tools/media';
+
 import {
     ubuntuRegular,
     ubuntuBold,
@@ -33,6 +35,11 @@ export const PostTitle = styled.h1`
     color: ${japeneseIndigo};
     margin: 0;
     padding: 20px 0;
+
+    ${media.mobile`
+        ${ubuntuBold(50)}
+        padding: 20px;
+    `}
 `;
 
 export const PostCover = styled.img`
@@ -57,13 +64,35 @@ export const PostText = styled.div`
             }
         }
     }
+
+    ${media.mobile`
+        ${ubuntuRegular(20)}
+        line-height: 30px;
+        padding: 30px;
+        padding-bottom: 0px;
+
+        p {
+            &:first-child{
+                &:first-letter{
+                    ${spectralRegular(140)}    
+                    margin-left: -20px;
+                }
+            }
+        }
+    `}
 `;
 
 export const PostFooter = styled.footer`
     display: block;
+    box-sizing: border-box;
     margin: 20px auto 60px;
     max-width: 900px;
     text-align: right;
+
+    ${media.mobile`
+        margin: 0 auto 20px;
+        padding-right: 20px;
+    `}
 `;
 
 export const PostAuthor = styled.span`
