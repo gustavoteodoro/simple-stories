@@ -1,24 +1,23 @@
-
 import styled from 'styled-components';
 
 import {
-    spectralRegular,
+  spectralRegular,
 } from '../../styles/tools/types';
 
 import {
-    white,
+  white,
 } from '../../styles/settings/colors';
 
 export const LogoContainer = styled.div`
-    display: block;
+  display: block;
 `;
 
 export const LogoTitle = styled.h1`
-    ${spectralRegular(40)};
+  ${spectralRegular(40)};
 
-    display: inline-block;
-    margin: 0;
-    padding: 10px;
-    color: ${white};
-    cursor: pointer;
+  display: inline-block;
+  margin: 0;
+  padding: 10px;
+  color: ${white};
+  cursor: pointer;
 `;

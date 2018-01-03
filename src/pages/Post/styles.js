@@ -3,15 +3,15 @@ import styled from 'styled-components';
 import { media } from '../../styles/tools/media';
 
 import {
-    ubuntuRegular,
-    ubuntuBold,
-    spectralRegular,
+  ubuntuRegular,
+  ubuntuBold,
+  spectralRegular,
 } from '../../styles/tools/types';
 
 import {
-    japeneseIndigo,
-    darkSeaGreen,
-    white,
+  japeneseIndigo,
+  darkSeaGreen,
+  white,
 } from '../../styles/settings/colors';
 
 export const PostContainer = styled.div`
