@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { media } from '../../styles/tools/media';
+
 import {
     darkSeaGreen,
 } from '../../styles/settings/colors';
@@ -9,6 +11,10 @@ export const LoginContainer = styled.div`
     min-height: calc(100vh - 80.8px);
     overflow: hidden;
     background:  ${darkSeaGreen};
+
+    ${media.mobile`
+        min-height: calc(100vh - 115px);
+    `}
 `;
 
 export const LoginContent = styled.div`
@@ -18,4 +24,9 @@ export const LoginContent = styled.div`
     padding-left: 600px;
     padding-bottom: 200px;
     margin: 0 auto;
+
+    ${media.mobile`
+        background: none;
+        padding: 0;
+    `}
 `

@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { media } from '../../styles/tools/media';
+
 import {
     ubuntuBold,
 } from '../../styles/tools/types';
@@ -13,6 +15,10 @@ export const LoginFormContainer = styled.div`
     max-width: 320px;
     margin: 0 auto;
     padding-top: 50px;
+
+    ${media.mobile`
+        padding-top: 0;
+    `}
 `;
 
 export const LoginFormTitle = styled.h2`
