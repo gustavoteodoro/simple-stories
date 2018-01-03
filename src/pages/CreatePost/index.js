@@ -148,7 +148,7 @@ class CreatePost extends Component {
               <CreatePostAuthor>{this.props.user ? this.props.user.userName : ''}</CreatePostAuthor>
             </CreatePostFooter>
             <CreatPostSubmit>
-              <input type='submit' value='Publish storie' />
+              <input type='submit' value='Publish story' />
             </CreatPostSubmit>
           </form>
         </CreatePostContent>
