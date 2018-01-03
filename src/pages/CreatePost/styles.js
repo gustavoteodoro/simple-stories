@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { media } from '../../styles/tools/media';
+
 import {
     ubuntuRegular,
     ubuntuBold,
@@ -32,7 +34,7 @@ export const CreatePostTitle = styled.h1`
     
     width: 100%;
     min-height: 160px;
-    box-sizign: border-box;
+    box-sizing: border-box;
     word-break: break-word;
     position: relative;
     color: ${japeneseIndigo};
@@ -49,6 +51,11 @@ export const CreatePostTitle = styled.h1`
         height: 100%;
         opacity: 0;
     }
+
+    ${media.mobile`
+        ${ubuntuBold(50)}
+        padding: 20px;
+    `}
 `;
 
 export const CreatePostCover = styled.div`
@@ -72,6 +79,10 @@ export const CreatePostCover = styled.div`
         width: 100%;
         pointer-events: none;
     }
+
+    ${media.mobile`
+        min-height: 200px;
+    `}
 `;
 
 export const CreatePostCoverLabel = styled.span`
@@ -115,6 +126,21 @@ export const CreatePostText = styled.div`
             margin-left: -150px;
         }
     }
+
+    ${media.mobile`
+        ${ubuntuRegular(20)}
+        line-height: 30px;
+        padding: 30px;
+        padding-bottom: 0px;
+        margin-top: -50px;
+
+        p {
+            &:first-letter{
+                ${spectralRegular(140)}    
+                margin-left: -20px;
+            }
+        }
+    `}
 `;
 
 export const CreatePostFooter = styled.footer`

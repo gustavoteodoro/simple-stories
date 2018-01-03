@@ -70,6 +70,7 @@ export const PostText = styled.div`
         line-height: 30px;
         padding: 30px;
         padding-bottom: 0px;
+        margin-top: -50px;
 
         p {
             &:first-child{
