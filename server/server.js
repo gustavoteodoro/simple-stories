@@ -5,7 +5,6 @@ var Strategy = require('passport-local').Strategy;
 mongoose.connect('mongodb://localhost:27017/simple-stories');
 var bodyParser = require('body-parser');
 var fs = require('fs');
-
 var app = express();
 var UserModel = require('./models/userModel');
 var StorieModel = require('./models/storieModel');
@@ -37,7 +36,6 @@ app.use(require('cookie-parser')());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(require('express-session')({ secret: 'keyboard cat', resave: false, saveUninitialized: false }));
-
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -49,6 +47,12 @@ app.post('/api/login',
         })
     }
 );
+
+app.get('/api/auth', function (req, res) {
+    res.json({
+        "user": req.user
+    })
+});
 
 app.get('/api/logout', function (req, res) {
     req.session.destroy(function (err) {
@@ -93,12 +97,6 @@ app.get('/api/storie/:slug', function (req, res) {
     });
 });
 
-app.get('/api/auth', function (req, res) {
-    res.json({
-        "user": req.user
-    })
-});
-
 app.get('/api/create-storie',
     function(req, res){
         res.json({
@@ -110,20 +108,14 @@ app.get('/api/create-storie',
 app.post('/api/create-storie', function(req, res){
     StorieModel.findOne({ storieSlug: req.body.storieSlug }, function(err, storie) {
         let newStorieSlug = req.body.storieSlug;
-        fs.writeFile(req.body.storieCover.preview, '../public/uploads/' + newStorieSlug + '.jpg',  (err) => {
-            if (err) throw err;
-            console.log('The file has been saved!');
-        });
-        
         if(storie){
             newStorieSlug = req.body.storieSlug + Math.floor((Math.random() * 100) + 1);
         }
-        
         var storie = new StorieModel({
             storieSlug: newStorieSlug,
             storieTitle: req.body.storieTitle,
+            storieCover: 'cover' + Math.floor((Math.random() * 10) + 1) + '.jpg',
             storieAuthor: req.body.storieAuthor,
-            storieCover: newStorieSlug + '.jpg',
             storieText: req.body.storieText
         });
         storie.save(function(error, storie){
